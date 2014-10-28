@@ -2,7 +2,7 @@
 * @Author: ValenW
 * @Date:   2014-10-28 14:21:40
 * @Last Modified by:   ValenW
-* @Last Modified time: 2014-10-28 19:13:35
+* @Last Modified time: 2014-10-28 19:31:45
 */
 window.onload = function() {
     var tables = getAllTables();
@@ -54,16 +54,22 @@ function toShort(event) {
         reFrag.appendChild(retr[ii]);
     }
     oTbody.appendChild(reFrag);
+
     oTr.i = i;  oTr.j = j;  oTr.k = k;
-    ooTh = getElementsByTagName('th');
+    var ooTh = mTable.getElementsByTagName('th');
     for (var i = 0; i < ooTh.length; i++) {
-        ooth[i].style.backgroundColor = "#000080";
-        ooth[i].style.backgroundImage = "";
+        ooTh[i].style.backgroundColor = "#000080";
+        ooTh[i].style.backgroundImage = "";
+    }
+    var ooTr = oTbody.getElementsByTagName('tr');
+    for (var i = 0; i < ooTr.length; i++) {
+        if (i % 2) ooTr[i].style.backgroundColor = "#FFE4E1";
+        else ooTr[i].style.backgroundColor = "white";
     }
     this.style.backgroundColor = "#7FFFD4";
     this.style.backgroundImage = "url(images/ascend.png)";
     this.style.backgroundRepeat = "no-repeat";
-    this.style.backgroundPosition = "top right";
+    this.style.backgroundPosition = "right";
 }
 function getcmp(k) {
     return function cmp(tr1, tr2) {
