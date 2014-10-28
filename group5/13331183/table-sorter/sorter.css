@@ -1,0 +1,30 @@
+table {
+	border-collapse: collapse;
+}
+table, th, td {
+	border: 1px solid #92A0AD;
+}
+th {
+	background-color: #203470;
+	color: white;
+	text-align: left;
+	padding-right: 1.5rem;
+}
+th:hover {
+	cursor: pointer;
+}
+.alternate {
+	background-color: #D6DBE0;
+}
+.change_up {/*升序时表头的样式*/
+	background-image: url("ascend.png");
+	background-repeat: no-repeat;
+	background-position: right;
+	background-color: #00ACE6;
+}
+.change_down {/*降序时表头的样式*/
+	background-image: url("descend.png");
+	background-repeat: no-repeat;
+	background-color: #00ACE6;
+	background-position: right;
+}
