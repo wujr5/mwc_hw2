@@ -1,0 +1,29 @@
+/*
+* @Author: ValenW
+* @Date:   2014-10-28 14:11:40
+* @Last Modified by:   ValenW
+* @Last Modified time: 2014-10-28 19:11:54
+*/
+body {
+    font-family: "微软雅黑", sans-serif, serif;
+}
+table {
+    border: 1px #708090 solid;
+    border-spacing: 0px;
+}
+th  {
+    background-color: #000080;
+    color: white;
+    text-align: left;
+    padding: 0.2em 3em 0.2em 0.2em;
+    border: 1px #708090 solid;
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+td {
+    border: 1px #708090 solid;
+    padding-right: 40px;
+}
+.alternate {
+    background-color: #FFE4E1;
+}
