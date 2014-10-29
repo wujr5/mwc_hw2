@@ -2,7 +2,7 @@
 * @Author: ValenW
 * @Date:   2014-10-28 14:11:40
 * @Last Modified by:   ValenW
-* @Last Modified time: 2014-10-28 19:11:54
+* @Last Modified time: 2014-10-29 13:38:44
 */
 body {
     font-family: "微软雅黑", sans-serif, serif;
@@ -18,7 +18,8 @@ th  {
     padding: 0.2em 3em 0.2em 0.2em;
     border: 1px #708090 solid;
     background-repeat: no-repeat;
-    background-position: top right;
+    background-position: right;
+    cursor:pointer;
 }
 td {
     border: 1px #708090 solid;
