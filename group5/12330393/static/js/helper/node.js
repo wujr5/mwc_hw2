@@ -64,6 +64,36 @@
         return siblings;
       },
       /*
+      		* empty the body of table and replace with an array consist of new table body
+      		* @param oldParentNode : the root node of table
+      		* @param newNode : an array consist of a new table body
+      		* @param type    : a flag to indicate the type of table,which means if the value of type is 1,the table has "THEAD" child node,and if the value of type is 2, the table has no "THEAD" child node.
+      */
+
+      replaceNode: function(oldParentNode, newNode, type) {
+        var allTr, node, tbody, temp, tr, _i, _j, _len, _len1, _results;
+        allTr = [];
+        if (type === 1) {
+          tbody = oldParentNode.getElementsByTagName('tbody')[0];
+          allTr = _result.getELementChild(tbody);
+        }
+        if (type === 2) {
+          tbody = oldParentNode;
+          temp = _result.getNthChild(oldParentNode, 'tr');
+          allTr = temp.slice(1, temp.length);
+        }
+        for (_i = 0, _len = allTr.length; _i < _len; _i++) {
+          tr = allTr[_i];
+          tbody.removeChild(tr);
+        }
+        _results = [];
+        for (_j = 0, _len1 = newNode.length; _j < _len1; _j++) {
+          node = newNode[_j];
+          _results.push(tbody.appendChild(node));
+        }
+        return _results;
+      },
+      /*
       		* a function to check if a node has specific class
       		* @param ele : the node to be dealed with
       		* @param cla : a string of className
@@ -98,36 +128,6 @@
           reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
           return ele.className = ele.className.replace(reg, ' ');
         }
-      },
-      /*
-      		* empty the body of table and replace with an array consist of new table body
-      		* @param oldParentNode : the root node of table
-      		* @param newNode : an array consist of a new table body
-      		* @param type    : a flag to indicate the type of table,which means if the value of type is 1,the table has "THEAD" child node,and if the value of type is 2, the table has no "THEAD" child node.
-      */
-
-      replaceNode: function(oldParentNode, newNode, type) {
-        var allTr, node, tbody, temp, tr, _i, _j, _len, _len1, _results;
-        allTr = [];
-        if (type === 1) {
-          tbody = oldParentNode.getElementsByTagName('tbody')[0];
-          allTr = _result.getELementChild(tbody);
-        }
-        if (type === 2) {
-          tbody = oldParentNode;
-          temp = _result.getNthChild(oldParentNode, 'tr');
-          allTr = temp.slice(1, temp.length);
-        }
-        for (_i = 0, _len = allTr.length; _i < _len; _i++) {
-          tr = allTr[_i];
-          tbody.removeChild(tr);
-        }
-        _results = [];
-        for (_j = 0, _len1 = newNode.length; _j < _len1; _j++) {
-          node = newNode[_j];
-          _results.push(tbody.appendChild(node));
-        }
-        return _results;
       }
     };
   });
