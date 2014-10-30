@@ -1,11 +1,19 @@
 /*
 *    Filename: sorter.js
 *    Description: None.
-*    Last modified: 2014-10-27 15:06
+*    Last modified: 2014-10-30 09:33
 *
 *    陈炜健 － 13331018
 *    Email: eleveneat@gmail.com
 */
+
+/*
+*    已改进：1. 不直接在js里面改变样式，采用给元素属性赋值方式从而间接在css中修改样式的方案。
+*           2. 修改且完善了一些注释和格式的问题。
+*    未改进：
+*           1. 兼容问题。仍未想出较好的方案从而兼容其他网站不同格式的table，例如表头表格也是tr的table。
+*/
+
 window.onload = function() {
 	var tables = getAllTables();
 	makeAllTablesSortable(tables);
@@ -18,7 +26,7 @@ function makeAllTablesSortable(tables) { //变成sortable
 	for (var i = tables.length - 1; i >= 0; i--) {
 		var ths = tables[i].getElementsByTagName('th');
 		for (var foo = ths.length - 1; foo >= 0; foo--) {
-			ths[foo].addEventListener('click', toSort_ascending)
+			ths[foo].addEventListener('click', toSort_ascending);
 		}
 	}
 }
@@ -45,12 +53,10 @@ function toSort_ascending(event) { //升序排序
 		}
 	}
 
-	//改变点击的表头单元格样式，移除升序的事件发生器，添加降序的事件发生器
+	//给所点击的表头单元格的className赋值，从而改变样式
+	this.className = "ascend";
+	//移除升序的事件发生器，添加降序的事件发生器
 	this.removeEventListener('click', toSort_ascending);
-	this.style.backgroundColor = "rgba(150, 156, 255, 1)";
-	this.style.backgroundImage = "url(images/ascend.png)";
-	this.style.backgroundRepeat = "no-repeat";
-	this.style.backgroundPosition = "top right";
 	this.addEventListener('click', toSort_descending);
 }
 
@@ -75,17 +81,16 @@ function toSort_descending(event) { //降序排序
 		}
 	}
 
-	//改变点击的表头单元格样式，移除降序的事件发生器，添加升序的事件发生器
+	//给所点击的表头单元格的className赋值，从而改变样式
+	this.className = "descend";
+	//移除降序的事件发生器，添加升序的事件发生器
 	this.removeEventListener('click', toSort_descending);
-	this.style.backgroundImage = "url(images/descend.png)";
-	this.style.backgroundPosition = "top right";
 	this.addEventListener('click',toSort_ascending);
 }
 
 function reset_Other_Th(ths) { //重置表头单元格的状态
 	for (var i = ths.length - 1; i >= 0; i--) {
-		ths[i].style.backgroundColor = "rgba(3, 12, 110, 1)";
-		ths[i].style.backgroundImage = "";
+		ths[i].className = ""; //把单元格的className赋为空，从而实现从高亮样式变回原状态样式的效果
 		ths[i].removeEventListener('click', toSort_descending);
 		ths[i].addEventListener('click',toSort_ascending);
 	}
