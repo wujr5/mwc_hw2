@@ -36,7 +36,8 @@ function makeAllTablesSortable(tables) {
 			    temps[k].className = "";
 			    tbodys[0].appendChild(temps[k]);//把按要求排好序的”tr“节点重新接回DOM树中
 			}
-			temps[1].className = "alternate";//把列表的偶数行（对于该表即只是第二行）设为浅灰色
+			for (var k = 1 ; k < temps.length ;  k += 2)
+			     temps[k].className = "alternate";//把列表的偶数行设为浅灰色
 		    }
 		})(j);
 	    }
