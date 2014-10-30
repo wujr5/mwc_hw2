@@ -1,2 +1,7 @@
-http://www.theguardian.com/football/premierleague/table
 http://www.soj.me/ranklist.php
+http://zion.sysu.edu.cn:8080/m/ass/
+http://soccer.hupu.com/teams/116
+http://www.theguardian.com/football/premierleague/table
+http://nba.sports.sina.com.cn/team/Spurs.shtml
+http://china.nba.com/stats/teams/teamStats/1610612748_2013_2_00_h.html
+由于该网站第二个table最后一个tr只有一个td，不符合规范，故只对第一个table有效
