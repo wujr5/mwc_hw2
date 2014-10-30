@@ -1,7 +1,7 @@
 /*
 *    Filename: sorter.css
 *    Description: A simple css.
-*    Last modified: 2014-10-28 09:37
+*    Last modified: 2014-10-30 09:37
 *
 *    陈炜健 － 13331018
 *    Email: eleveneat@gmail.com
@@ -23,4 +23,16 @@ td {
 }
 .alternate {
 	background-color: rgba(214, 214, 214, 1);
+}
+.ascend {
+	background-color: rgba(150, 156, 255, 1);
+	background-image: url(images/ascend.png);
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+.descend {
+	background-color: rgba(150, 156, 255, 1);
+	background-image: url(images/descend.png);
+	background-repeat: no-repeat;
+	background-position: top right;
 }
